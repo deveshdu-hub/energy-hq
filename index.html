@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>India Energy Future - AI Energy Advisor (Coming Soon)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --saffron: #FF9933;
+            --white: #FFFFFF;
+            --navy: #1a2a4a;
+            --gold: #D4AF37;
+            --dark-bg: #0d1b2a;
+            --card-bg: #152238;
+            --green: #4CAF50;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Syne', 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--navy) 100%);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 153, 51, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(30px) translateX(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--saffron) 0%, var(--gold) 50%, var(--green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h1 {
+            font-size: 56px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 20px rgba(255, 153, 51, 0.15);
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: var(--gold);
+            margin-bottom: 40px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .cta-section {
+            max-width: 500px;
+            margin: 0 auto 60px;
+        }
+
+        .waitlist-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        input[type="email"] {
+            flex: 1;
+            min-width: 250px;
+            padding: 16px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            color: var(--white);
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        input[type="email"]:focus {
+            outline: none;
+            border-color: var(--saffron);
+            background: rgba(255, 153, 51, 0.08);
+            box-shadow: 0 0 20px rgba(255, 153, 51, 0.2);
+        }
+
+        .btn-primary {
+            padding: 16px 40px;
+            background: linear-gradient(135deg, var(--saffron), var(--gold));
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 153, 51, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid var(--green);
+            color: var(--green);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: slideDown 0.4s ease-out;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: rgba(21, 34, 56, 0.3);
+            border-top: 1px solid rgba(255, 153, 51, 0.2);
+            border-bottom: 1px solid rgba(255, 153, 51, 0.2);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 60px;
+            background: linear-gradient(90deg, var(--white), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 153, 51, 0.2);
+            padding: 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--saffron);
+            box-shadow: 0 12px 40px rgba(255, 153, 51, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 12px;
+            color: var(--gold);
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 80px 0;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: var(--card-bg);
+            border: 2px solid rgba(255, 153, 51, 0.2);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--saffron);
+            box-shadow: 0 15px 50px rgba(255, 153, 51, 0.2);
+        }
+
+        .pricing-card.popular {
+            border-color: var(--saffron);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.popular::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--saffron), var(--gold));
+            color: var(--dark-bg);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .plan-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--gold);
+        }
+
+        .plan-price {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 10px;
+        }
+
+        .plan-price span {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+        }
+
+        .plan-description {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+        }
+
+        .plan-features {
+            list-style: none;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .plan-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 153, 51, 0.1);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .plan-features li:before {
+            content: '✓ ';
+            color: var(--saffron);
+            font-weight: 700;
+            margin-right: 8px;
+        }
+
+        .btn-secondary {
+            padding: 12px 30px;
+            background: rgba(255, 153, 51, 0.1);
+            color: var(--saffron);
+            border: 2px solid var(--saffron);
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            font-size: 14px;
+        }
+
+        .btn-secondary:hover {
+            background: var(--saffron);
+            color: var(--dark-bg);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid rgba(255, 153, 51, 0.1);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: var(--saffron);
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 36px;
+            }
+
+            .subtitle {
+                font-size: 16px;
+            }
+
+            .waitlist-form {
+                flex-direction: column;
+            }
+
+            input[type="email"] {
+                min-width: 100%;
+            }
+
+            .pricing-card.popular {
+                transform: scale(1);
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .plan-price {
+                font-size: 36px;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--saffron);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav style="position: fixed; width: 100%; top: 0; background: rgba(13, 27, 42, 0.8); backdrop-filter: blur(10px); padding: 20px 0; z-index: 100; border-bottom: 1px solid rgba(255, 153, 51, 0.1);">
+        <div class="container" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="font-size: 18px; font-weight: 700; background: linear-gradient(90deg, var(--saffron), var(--gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+                ⚡ INDIA ENERGY FUTURE
+            </div>
+            <div style="font-size: 12px; color: var(--gold); letter-spacing: 1px;">Coming Soon</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-hero">
+                <span>⚡</span>
+                INDIA ENERGY FUTURE
+            </div>
+            <h1>Your AI Energy Advisor</h1>
+            <p class="subtitle">Ask anything about India's renewable energy, EV adoption, and clean energy transition</p>
+            
+            <div class="cta-section">
+                <div class="waitlist-form">
+                    <input type="email" id="emailInput" placeholder="your@email.com" required>
+                    <button class="btn-primary" onclick="joinWaitlist()">Join Waitlist</button>
+                </div>
+                <div class="success-message" id="successMessage">
+                    ✓ Thanks for joining! We'll notify you when we launch.
+                </div>
+            </div>
+
+            <p style="font-size: 13px; color: rgba(255, 255, 255, 0.6); margin-top: 30px;">
+                🚀 Launching in 3 weeks • No spam • Exclusive early-bird pricing for waitlist members
+            </p>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">What You Can Ask</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">☀️</div>
+                    <h3>Solar & Renewable Energy</h3>
+                    <p>Get instant answers about solar subsidies, installation costs, ROI calculations, and India's renewable energy targets.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🚗</div>
+                    <h3>EV Adoption & Charging</h3>
+                    <p>Learn about EV models in India, charging infrastructure, government schemes, and cost comparisons with petrol cars.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Energy Efficiency</h3>
+                    <p>Optimize your home's energy consumption, reduce bills, and understand India's power mix and energy policies.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Coal & Climate Transition</h3>
+                    <p>Understand India's coal dependency, decarbonization goals, and the shift towards clean energy sources.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💡</div>
+                    <h3>Data-Driven Insights</h3>
+                    <p>Get factual, up-to-date information about India's energy sector backed by real data and official sources.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Personalized Advice</h3>
+                    <p>Receive tailored recommendations based on your location, income level, and energy needs in India.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple Pricing</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="plan-name">Pay Per Query</div>
+                    <div class="plan-price">₹50<span>/query</span></div>
+                    <p class="plan-description">Perfect for occasional questions</p>
+                    <ul class="plan-features">
+                        <li>Ask unlimited questions</li>
+                        <li>Instant AI responses</li>
+                        <li>Save your favorites</li>
+                        <li>No subscription needed</li>
+                    </ul>
+                    <button class="btn-secondary">Choose Plan</button>
+                </div>
+
+                <div class="pricing-card popular">
+                    <div class="plan-name">Monthly Subscription</div>
+                    <div class="plan-price">₹99<span>/month</span></div>
+                    <p class="plan-description">Best value for active learners</p>
+                    <ul class="plan-features">
+                        <li>Unlimited questions</li>
+                        <li>Priority responses</li>
+                        <li>Save & export reports</li>
+                        <li>Access to webinars</li>
+                        <li>Community access</li>
+                    </ul>
+                    <button class="btn-secondary">Choose Plan</button>
+                </div>
+
+                <div class="pricing-card">
+                    <div class="plan-name">For Organizations</div>
+                    <div class="plan-price">Custom<span>/month</span></div>
+                    <p class="plan-description">For solar companies, EV dealers, NGOs</p>
+                    <ul class="plan-features">
+                        <li>White-label solution</li>
+                        <li>Embed on your site</li>
+                        <li>Custom training data</li>
+                        <li>Analytics dashboard</li>
+                        <li>Dedicated support</li>
+                    </ul>
+                    <button class="btn-secondary">Contact Sales</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p style="margin-bottom: 20px;">Made with ⚡ for India's Energy Future</p>
+        <div class="footer-links">
+            <a href="#privacy">Privacy</a>
+            <a href="#terms">Terms</a>
+            <a href="#contact">Contact</a>
+        </div>
+        <p style="margin-top: 30px;">Follow <a href="https://instagram.com/indiaenergyfuture" style="color: var(--saffron);">@indiaenergyfuture</a> for updates</p>
+    </footer>
+
+    <script>
+        function joinWaitlist() {
+            const email = document.getElementById('emailInput').value.trim();
+            const successMsg = document.getElementById('successMessage');
+
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email');
+                return;
+            }
+
+            // Store in browser localStorage (for demo)
+            const waitlist = JSON.parse(localStorage.getItem('waitlist') || '[]');
+            if (!waitlist.includes(email)) {
+                waitlist.push(email);
+                localStorage.setItem('waitlist', JSON.stringify(waitlist));
+            }
+
+            // Show success message
+            document.getElementById('emailInput').value = '';
+            successMsg.classList.add('show');
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 3000);
+
+            console.log('Waitlist:', waitlist);
+        }
+
+        // Enter key support
+        document.getElementById('emailInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') joinWaitlist();
+        });
+    </script>
+</body>
+</html>
