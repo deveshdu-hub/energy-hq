@@ -1,18 +1,10 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>India Energy Future HQ | EV Savings Calculator India</title>
-
-<meta name="description" content="AI-powered EV Savings Calculator for Indian users. Calculate EV ROI, petrol savings, energy costs, and clean energy benefits.">
-
-<meta name="keywords" content="EV Savings Calculator India, EV ROI India, electric vehicle calculator, EV charging India, clean energy India">
-
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<title>India Energy Future HQ</title>
 
 <style>
 
@@ -20,258 +12,92 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+font-family:Arial,sans-serif;
 }
 
 body{
-font-family:'DM Sans',sans-serif;
 background:#050816;
 color:white;
-overflow-x:hidden;
-background-image:
-radial-gradient(circle at top left,#7c3aed33,transparent 30%),
-radial-gradient(circle at bottom right,#06b6d433,transparent 30%);
+min-height:100vh;
+padding:20px;
+display:flex;
+justify-content:center;
+align-items:center;
 }
 
 .container{
-max-width:1200px;
-margin:auto;
-padding:20px;
+width:100%;
+max-width:500px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,255,255,0.08);
+padding:30px;
+border-radius:30px;
+box-shadow:0 0 40px rgba(0,255,255,0.15);
+backdrop-filter:blur(10px);
 }
 
-.hero{
-padding:80px 20px;
+h1{
+font-size:32px;
 text-align:center;
-}
-
-.logo{
-font-size:18px;
-font-weight:700;
-letter-spacing:2px;
-color:#06b6d4;
 margin-bottom:20px;
-}
-
-.hero h1{
-font-family:'Space Grotesk',sans-serif;
-font-size:clamp(40px,7vw,80px);
-font-weight:700;
-line-height:1.1;
-background:linear-gradient(90deg,#06b6d4,#8b5cf6,#22c55e);
+background:linear-gradient(90deg,#00d4ff,#8b5cf6);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-margin-bottom:25px;
 }
 
-.hero p{
-max-width:700px;
-margin:auto;
-font-size:20px;
+.description{
+text-align:center;
+font-size:18px;
 line-height:1.7;
+margin-bottom:35px;
 color:#cbd5e1;
-}
-
-.calculator{
-margin-top:50px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-padding:35px;
-border-radius:28px;
-backdrop-filter:blur(20px);
-box-shadow:0 0 40px rgba(6,182,212,0.2);
-animation:fadeIn 1s ease;
-}
-
-.input-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-margin-top:30px;
 }
 
 input{
 width:100%;
 padding:18px;
-border-radius:16px;
-border:1px solid #334155;
-background:#0f172a;
+margin-bottom:20px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.1);
+background:#081028;
 color:white;
-font-size:16px;
+font-size:18px;
 outline:none;
-transition:0.3s;
-}
-
-input:focus{
-border-color:#06b6d4;
-box-shadow:0 0 25px rgba(6,182,212,0.3);
 }
 
 button{
 width:100%;
-padding:18px;
-margin-top:30px;
+padding:20px;
 border:none;
-border-radius:18px;
+border-radius:20px;
+font-size:22px;
+font-weight:bold;
+cursor:pointer;
 background:linear-gradient(90deg,#06b6d4,#8b5cf6);
 color:white;
-font-size:18px;
-font-weight:700;
-cursor:pointer;
 transition:0.3s;
-box-shadow:0 0 30px rgba(139,92,246,0.4);
 }
 
 button:hover{
-transform:translateY(-4px);
-box-shadow:0 0 45px rgba(139,92,246,0.6);
+transform:scale(1.02);
 }
 
-.results{
-margin-top:40px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
+.result-card{
+margin-top:25px;
 padding:25px;
-border-radius:22px;
-transition:0.3s;
-animation:slideUp 1s ease;
-}
-
-.card:hover{
-transform:translateY(-5px);
-border-color:#06b6d4;
-}
-
-.card h3{
-font-size:16px;
-color:#94a3b8;
-margin-bottom:12px;
-}
-
-.card p{
-font-size:28px;
-font-weight:700;
-font-family:'Space Grotesk',sans-serif;
-color:#22c55e;
-}
-
-.cta{
-margin-top:50px;
-text-align:center;
-}
-
-.cta a{
-display:inline-block;
-padding:18px 36px;
 border-radius:20px;
-background:linear-gradient(90deg,#8b5cf6,#06b6d4);
-text-decoration:none;
-color:white;
-font-weight:700;
+background:#111827;
+box-shadow:0 0 25px rgba(0,255,255,0.2);
+}
+
+.result-card h2{
+margin-bottom:15px;
+}
+
+.result-card p{
+margin-bottom:12px;
 font-size:18px;
-transition:0.3s;
-box-shadow:0 0 40px rgba(6,182,212,0.4);
-}
-
-.cta a:hover{
-transform:scale(1.05);
-}
-
-.waitlist{
-margin-top:90px;
-padding:45px;
-background:rgba(255,255,255,0.04);
-border-radius:28px;
-text-align:center;
-}
-
-.waitlist h2{
-font-size:42px;
-font-family:'Space Grotesk',sans-serif;
-margin-bottom:20px;
-}
-
-.waitlist p{
-color:#cbd5e1;
-margin-bottom:30px;
-font-size:18px;
-}
-
-.email-box{
-display:flex;
-gap:10px;
-max-width:650px;
-margin:auto;
-flex-wrap:wrap;
-}
-
-.email-box input{
-flex:1;
-}
-
-.disclaimer{
-margin-top:30px;
-font-size:13px;
-color:#94a3b8;
-text-align:center;
-}
-
-.footer{
-margin-top:80px;
-text-align:center;
-padding-bottom:40px;
-color:#64748b;
-font-size:14px;
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@keyframes slideUp{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-@media(max-width:768px){
-
-.hero{
-padding-top:50px;
-}
-
-.input-grid{
-grid-template-columns:1fr;
-}
-
-.hero h1{
-font-size:42px;
-}
-
-.hero p{
-font-size:17px;
-}
-
-.waitlist h2{
-font-size:30px;
-}
-
+line-height:1.5;
 }
 
 </style>
@@ -281,157 +107,92 @@ font-size:30px;
 
 <div class="container">
 
-<section class="hero">
+<h1>⚡ India Energy Future HQ</h1>
 
-<div class="logo">
-⚡ INDIA ENERGY FUTURE HQ
-</div>
-
-<h1>
-EV Savings Calculator India
-</h1>
-
-<p>
-Discover how much money you could save by switching from petrol to electric vehicles using AI-powered India-specific clean energy estimates.
+<p class="description">
+Discover how much money you could save by switching
+from petrol to electric vehicles using AI-powered
+India-specific clean energy estimates.
 </p>
 
-<div class="calculator">
+<input type="number" id="petrolSpend" placeholder="Monthly Petrol Spend ₹" />
 
-<div class="input-grid">
+<input type="number" id="dailyDistance" placeholder="Daily Driving Distance (KM)" />
 
-<input type="number" id="petrolSpend" placeholder="Monthly Petrol Spend (₹)">
+<input type="number" id="electricityCost" placeholder="Electricity Cost Per Unit ₹" />
 
-<input type="number" id="dailyDistance" placeholder="Daily Driving Distance (km)">
+<input type="text" id="cityName" placeholder="City Name" />
 
-<input type="number" id="electricityCost" placeholder="Electricity Cost (₹/unit)">
-
-<input type="text" id="cityName" placeholder="Your City">
-
-</div>
-
-<button onclick="calculateSavings()">
+<button onclick="calculateEVSavings()">
 ⚡ Calculate My EV Savings
 </button>
 
-<div class="results">
-
-<div class="card">
-<h3>Monthly Savings</h3>
-<p id="monthlySavings">₹0</p>
-</div>
-
-<div class="card">
-<h3>Yearly Savings</h3>
-<p id="yearlySavings">₹0</p>
-</div>
-
-<div class="card">
-<h3>5-Year Savings</h3>
-<p id="fiveYearSavings">₹0</p>
-</div>
-
-<div class="card">
-<h3>Estimated ROI</h3>
-<p id="roiEstimate">0 yrs</p>
-</div>
-
-<div class="card">
-<h3>Recommended EV</h3>
-<p id="evCategory">-</p>
-</div>
-
-</div>
-
-<div class="cta">
-<a href="#">
-Get Full AI Energy Report
-</a>
-</div>
-
-<div class="disclaimer">
-Estimates vary by driving style and electricity tariffs.
-</div>
-
-</div>
-
-</section>
-
-<section class="waitlist">
-
-<h2>
-Join India’s Energy Future ⚡
-</h2>
-
-<p>
-Get early access to AI-powered EV insights, subsidy alerts, charging intelligence, and clean energy tools for Indian users.
-</p>
-
-<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-
-<div class="email-box">
-
-<input type="email" name="email" placeholder="Enter your email" required>
-
-<button type="submit">
-Join Waitlist
-</button>
-
-</div>
-
-</form>
-
-</section>
-
-<div class="footer">
-© 2026 India Energy Future HQ • AI-powered clean energy intelligence for India
-</div>
+<div id="results"></div>
 
 </div>
 
 <script>
 
-function calculateSavings(){
+function calculateEVSavings() {
 
-const petrolSpend = parseFloat(document.getElementById('petrolSpend').value) || 0;
+const petrolSpend =
+parseFloat(document.getElementById("petrolSpend").value) || 0;
 
-const dailyDistance = parseFloat(document.getElementById('dailyDistance').value) || 0;
+const dailyDistance =
+parseFloat(document.getElementById("dailyDistance").value) || 0;
 
-const electricityCost = parseFloat(document.getElementById('electricityCost').value) || 8;
+const electricityCost =
+parseFloat(document.getElementById("electricityCost").value) || 0;
 
-const monthlyEVcost = dailyDistance * 30 * 0.18 * electricityCost;
+const city =
+document.getElementById("cityName").value;
 
-const monthlySavings = petrolSpend - monthlyEVcost;
+const petrolPrice = 105;
+const petrolMileage = 15;
+const evEfficiency = 0.15;
 
-const yearlySavings = monthlySavings * 12;
+const monthlyDistance = dailyDistance * 30;
 
-const fiveYearSavings = yearlySavings * 5;
+const petrolLitres = monthlyDistance / petrolMileage;
 
-const roiYears = (150000 / yearlySavings).toFixed(1);
+const petrolMonthlyCost =
+petrolLitres * petrolPrice;
 
-let evType = "Tata Tiago EV";
+const evUnits =
+monthlyDistance * evEfficiency;
 
-if(dailyDistance > 40){
-evType = "Tata Nexon EV";
-}
+const evMonthlyCost =
+evUnits * electricityCost;
 
-if(dailyDistance > 80){
-evType = "BYD Atto 3";
-}
+const monthlySavings =
+petrolMonthlyCost - evMonthlyCost;
 
-document.getElementById('monthlySavings').innerHTML =
-"₹" + Math.round(monthlySavings).toLocaleString();
+const yearlySavings =
+monthlySavings * 12;
 
-document.getElementById('yearlySavings').innerHTML =
-"₹" + Math.round(yearlySavings).toLocaleString();
+document.getElementById("results").innerHTML = `
 
-document.getElementById('fiveYearSavings').innerHTML =
-"₹" + Math.round(fiveYearSavings).toLocaleString();
+<div class="result-card">
 
-document.getElementById('roiEstimate').innerHTML =
-roiYears + " yrs";
+<h2>⚡ EV Savings Report</h2>
 
-document.getElementById('evCategory').innerHTML =
-evType;
+<p><strong>City:</strong> ${city}</p>
+
+<p><strong>Monthly Petrol Cost:</strong>
+₹${petrolMonthlyCost.toFixed(0)}</p>
+
+<p><strong>Monthly EV Cost:</strong>
+₹${evMonthlyCost.toFixed(0)}</p>
+
+<p><strong>Monthly Savings:</strong>
+₹${monthlySavings.toFixed(0)}</p>
+
+<p><strong>Yearly Savings:</strong>
+₹${yearlySavings.toFixed(0)}</p>
+
+</div>
+
+`;
 
 }
 
