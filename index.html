@@ -1,949 +1,441 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>India Energy Future - Your Energy AI Advisor</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --purple: #8B5CF6;
-            --cyan: #00F0FF;
-            --saffron: #FF6B35;
-            --lime: #32FF00;
-            --navy: #0F172A;
-            --dark-bg: #0a0e27;
-            --card-bg: rgba(139, 92, 246, 0.1);
-        }
-
-        body {
-            font-family: 'DM Sans', sans-serif;
-            background: linear-gradient(135deg, var(--dark-bg) 0%, #1a1f3a 100%);
-            color: #e5e7eb;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* Animated background elements */
-        .bg-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-
-        .floating-orb {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.15;
-            animation: float 8s ease-in-out infinite;
-        }
-
-        .orb-1 { width: 400px; height: 400px; background: var(--purple); top: -200px; left: -200px; animation-delay: 0s; }
-        .orb-2 { width: 300px; height: 300px; background: var(--cyan); bottom: -150px; right: -150px; animation-delay: 2s; }
-        .orb-3 { width: 250px; height: 250px; background: var(--saffron); top: 50%; left: 50%; animation-delay: 4s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(30px); }
-        }
-
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* HERO SECTION */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            animation: slideUp 1s ease-out;
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .lightning-icon {
-            font-size: 80px;
-            margin-bottom: 20px;
-            display: inline-block;
-            animation: pulse 2s ease-in-out infinite;
-            filter: drop-shadow(0 0 20px var(--saffron));
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; transform: scale(1); }
-            50% { opacity: 1; transform: scale(1.1); }
-        }
-
-        .hero h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(40px, 8vw, 72px);
-            font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 20px;
-            line-height: 1.1;
-            background: linear-gradient(135deg, var(--cyan) 0%, var(--purple) 50%, var(--saffron) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .highlight {
-            color: var(--lime);
-            text-decoration: underline;
-            text-decoration-color: var(--saffron);
-            text-underline-offset: 8px;
-        }
-
-        .hero-subtitle {
-            font-size: 20px;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-
-        .shock-stat {
-            background: linear-gradient(135deg, var(--purple), var(--cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            font-family: 'Space Mono', monospace;
-            font-size: 28px;
-            font-weight: 700;
-            margin: 20px 0;
-        }
-
-        /* PROBLEM CARDS */
-        .problems-section {
-            padding: 80px 20px;
-            background: linear-gradient(180deg, transparent 0%, rgba(139, 92, 246, 0.05) 100%);
-        }
-
-        .section-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: clamp(32px, 6vw, 48px);
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 60px;
-            color: #f5f5f5;
-        }
-
-        .problems-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .problem-card {
-            background: rgba(139, 92, 246, 0.1);
-            border: 2px solid rgba(139, 92, 246, 0.3);
-            border-radius: 16px;
-            padding: 30px;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .problem-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-            z-index: 1;
-        }
-
-        .problem-card:hover::before {
-            left: 100%;
-        }
-
-        .problem-card:hover {
-            background: rgba(139, 92, 246, 0.2);
-            border-color: var(--cyan);
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
-        }
-
-        .problem-number {
-            font-family: 'Space Mono', monospace;
-            font-size: 48px;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--saffron), var(--lime));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
-        }
-
-        .problem-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #f5f5f5;
-        }
-
-        .problem-text {
-            font-size: 15px;
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-
-        /* SOLUTION SECTION */
-        .solution-section {
-            padding: 80px 20px;
-            background: linear-gradient(180deg, rgba(0, 240, 255, 0.05) 0%, transparent 100%);
-        }
-
-        .solution-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-            margin-top: 60px;
-        }
-
-        .solution-text h3 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: #f5f5f5;
-        }
-
-        .solution-point {
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            margin-bottom: 20px;
-        }
-
-        .solution-icon {
-            font-size: 24px;
-            color: var(--lime);
-            flex-shrink: 0;
-            margin-top: 2px;
-        }
-
-        .solution-text-item {
-            font-size: 16px;
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-
-        .data-viz {
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(0, 240, 255, 0.1));
-            border: 2px solid rgba(0, 240, 255, 0.3);
-            border-radius: 16px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .chart-bar {
-            background: linear-gradient(180deg, var(--purple), var(--cyan));
-            height: 0;
-            margin: 10px 0;
-            border-radius: 8px;
-            animation: growBar 1.5s ease-out forwards;
-            position: relative;
-        }
-
-        .chart-bar:nth-child(1) { width: 30%; animation-delay: 0.2s; }
-        .chart-bar:nth-child(2) { width: 50%; animation-delay: 0.4s; }
-        .chart-bar:nth-child(3) { width: 80%; animation-delay: 0.6s; }
-        .chart-bar:nth-child(4) { width: 95%; animation-delay: 0.8s; }
-
-        @keyframes growBar {
-            from { height: 0; }
-            to { height: 40px; }
-        }
-
-        .chart-label {
-            font-size: 13px;
-            color: #94a3b8;
-            margin-top: 5px;
-            margin-bottom: 15px;
-        }
-
-        /* SOCIAL PROOF */
-        .social-proof-section {
-            padding: 80px 20px;
-            background: linear-gradient(180deg, transparent 0%, rgba(255, 107, 53, 0.05) 100%);
-        }
-
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 60px;
-        }
-
-        .testimonial-card {
-            background: linear-gradient(135deg, rgba(0, 240, 255, 0.1), rgba(139, 92, 246, 0.1));
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            border-radius: 12px;
-            padding: 25px;
-            backdrop-filter: blur(10px);
-            position: relative;
-            animation: slideInUp 0.8s ease-out forwards;
-            opacity: 0;
-        }
-
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
-        .testimonial-card:nth-child(2) { animation-delay: 0.2s; }
-        .testimonial-card:nth-child(3) { animation-delay: 0.3s; }
-
-        .quote-mark {
-            font-size: 40px;
-            color: var(--purple);
-            opacity: 0.5;
-            margin-bottom: 10px;
-        }
-
-        .testimonial-text {
-            font-size: 15px;
-            color: #cbd5e1;
-            margin-bottom: 15px;
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            font-size: 13px;
-            color: var(--cyan);
-            font-weight: 600;
-        }
-
-        .stat-counter {
-            font-family: 'Space Mono', monospace;
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--lime);
-            margin: 40px 0 20px;
-        }
-
-        .stat-label {
-            font-size: 14px;
-            color: #94a3b8;
-        }
-
-        /* CTA SECTION */
-        .cta-section {
-            padding: 80px 20px;
-            background: linear-gradient(180deg, rgba(50, 255, 0, 0.05) 0%, transparent 100%);
-        }
-
-        .cta-container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 40px;
-            font-weight: 700;
-            text-align: center;
-            margin-bottom: 20px;
-            color: #f5f5f5;
-        }
-
-        .cta-subtitle {
-            font-size: 16px;
-            color: #cbd5e1;
-            text-align: center;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .email-input {
-            width: 100%;
-            padding: 16px 20px;
-            background: rgba(30, 41, 59, 0.8);
-            border: 2px solid rgba(0, 240, 255, 0.4);
-            border-radius: 12px;
-            color: #e5e7eb;
-            font-size: 16px;
-            font-family: 'DM Sans', sans-serif;
-            outline: none;
-            transition: all 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .email-input::placeholder {
-            color: rgba(148, 163, 184, 0.5);
-        }
-
-        .email-input:focus {
-            border-color: var(--cyan);
-            background: rgba(30, 41, 59, 0.95);
-            box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
-        }
-
-        .email-glow {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle, rgba(0, 240, 255, 0.1) 0%, transparent 70%);
-            border-radius: 12px;
-            pointer-events: none;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .email-input:focus ~ .email-glow {
-            opacity: 1;
-        }
-
-        .cta-button {
-            width: 100%;
-            padding: 16px 24px;
-            background: linear-gradient(135deg, var(--purple) 0%, var(--cyan) 100%);
-            color: #0f172a;
-            border: none;
-            border-radius: 12px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            box-shadow: 0 10px 30px rgba(0, 240, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.4);
-        }
-
-        .cta-button:active {
-            transform: translateY(-1px);
-        }
-
-        .cta-button:disabled {
-            opacity: 0.7;
-            cursor: not-allowed;
-        }
-
-        .urgency-message {
-            margin-top: 20px;
-            font-size: 14px;
-            color: var(--saffron);
-            text-align: center;
-            font-weight: 600;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        .success-message {
-            background: linear-gradient(135deg, rgba(50, 255, 0, 0.15), rgba(0, 240, 255, 0.15));
-            border: 2px solid var(--lime);
-            color: var(--lime);
-            padding: 20px;
-            border-radius: 12px;
-            margin-top: 20px;
-            display: none;
-            text-align: center;
-            font-weight: 600;
-            animation: slideIn 0.4s ease;
-        }
-
-        .success-message.show {
-            display: block;
-        }
-
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* BENEFITS */
-        .benefits-section {
-            padding: 60px 20px;
-            background: rgba(139, 92, 246, 0.05);
-        }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .benefit-item {
-            background: rgba(0, 240, 255, 0.1);
-            border: 1px solid rgba(0, 240, 255, 0.2);
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-        }
-
-        .benefit-item:hover {
-            background: rgba(0, 240, 255, 0.15);
-            border-color: var(--cyan);
-            transform: translateY(-5px);
-        }
-
-        .benefit-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
-        }
-
-        .benefit-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #f5f5f5;
-            margin-bottom: 10px;
-        }
-
-        .benefit-desc {
-            font-size: 13px;
-            color: #cbd5e1;
-            line-height: 1.5;
-        }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .hero { padding: 40px 20px; min-height: 80vh; }
-            .hero h1 { font-size: 36px; }
-            .shock-stat { font-size: 22px; }
-            .section-title { font-size: 28px; }
-            .solution-grid { grid-template-columns: 1fr; gap: 40px; }
-            .problems-grid { grid-template-columns: 1fr; }
-            .testimonials { grid-template-columns: 1fr; }
-        }
-
-        /* Scroll animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease-out;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>India Energy Future HQ | EV Savings Calculator India</title>
+
+<meta name="description" content="AI-powered EV Savings Calculator for Indian users. Calculate EV ROI, petrol savings, energy costs, and clean energy benefits.">
+
+<meta name="keywords" content="EV Savings Calculator India, EV ROI India, electric vehicle calculator, EV charging India, clean energy India">
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'DM Sans',sans-serif;
+background:#050816;
+color:white;
+overflow-x:hidden;
+background-image:
+radial-gradient(circle at top left,#7c3aed33,transparent 30%),
+radial-gradient(circle at bottom right,#06b6d433,transparent 30%);
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+padding:20px;
+}
+
+.hero{
+padding:80px 20px;
+text-align:center;
+}
+
+.logo{
+font-size:18px;
+font-weight:700;
+letter-spacing:2px;
+color:#06b6d4;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-family:'Space Grotesk',sans-serif;
+font-size:clamp(40px,7vw,80px);
+font-weight:700;
+line-height:1.1;
+background:linear-gradient(90deg,#06b6d4,#8b5cf6,#22c55e);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:25px;
+}
+
+.hero p{
+max-width:700px;
+margin:auto;
+font-size:20px;
+line-height:1.7;
+color:#cbd5e1;
+}
+
+.calculator{
+margin-top:50px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:35px;
+border-radius:28px;
+backdrop-filter:blur(20px);
+box-shadow:0 0 40px rgba(6,182,212,0.2);
+animation:fadeIn 1s ease;
+}
+
+.input-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:30px;
+}
+
+input{
+width:100%;
+padding:18px;
+border-radius:16px;
+border:1px solid #334155;
+background:#0f172a;
+color:white;
+font-size:16px;
+outline:none;
+transition:0.3s;
+}
+
+input:focus{
+border-color:#06b6d4;
+box-shadow:0 0 25px rgba(6,182,212,0.3);
+}
+
+button{
+width:100%;
+padding:18px;
+margin-top:30px;
+border:none;
+border-radius:18px;
+background:linear-gradient(90deg,#06b6d4,#8b5cf6);
+color:white;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 30px rgba(139,92,246,0.4);
+}
+
+button:hover{
+transform:translateY(-4px);
+box-shadow:0 0 45px rgba(139,92,246,0.6);
+}
+
+.results{
+margin-top:40px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:25px;
+border-radius:22px;
+transition:0.3s;
+animation:slideUp 1s ease;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:#06b6d4;
+}
+
+.card h3{
+font-size:16px;
+color:#94a3b8;
+margin-bottom:12px;
+}
+
+.card p{
+font-size:28px;
+font-weight:700;
+font-family:'Space Grotesk',sans-serif;
+color:#22c55e;
+}
+
+.cta{
+margin-top:50px;
+text-align:center;
+}
+
+.cta a{
+display:inline-block;
+padding:18px 36px;
+border-radius:20px;
+background:linear-gradient(90deg,#8b5cf6,#06b6d4);
+text-decoration:none;
+color:white;
+font-weight:700;
+font-size:18px;
+transition:0.3s;
+box-shadow:0 0 40px rgba(6,182,212,0.4);
+}
+
+.cta a:hover{
+transform:scale(1.05);
+}
+
+.waitlist{
+margin-top:90px;
+padding:45px;
+background:rgba(255,255,255,0.04);
+border-radius:28px;
+text-align:center;
+}
+
+.waitlist h2{
+font-size:42px;
+font-family:'Space Grotesk',sans-serif;
+margin-bottom:20px;
+}
+
+.waitlist p{
+color:#cbd5e1;
+margin-bottom:30px;
+font-size:18px;
+}
+
+.email-box{
+display:flex;
+gap:10px;
+max-width:650px;
+margin:auto;
+flex-wrap:wrap;
+}
+
+.email-box input{
+flex:1;
+}
+
+.disclaimer{
+margin-top:30px;
+font-size:13px;
+color:#94a3b8;
+text-align:center;
+}
+
+.footer{
+margin-top:80px;
+text-align:center;
+padding-bottom:40px;
+color:#64748b;
+font-size:14px;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes slideUp{
+from{
+opacity:0;
+transform:translateY(30px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:768px){
+
+.hero{
+padding-top:50px;
+}
+
+.input-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.waitlist h2{
+font-size:30px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
-    <div class="bg-animation">
-        <div class="floating-orb orb-1"></div>
-        <div class="floating-orb orb-2"></div>
-        <div class="floating-orb orb-3"></div>
-    </div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="lightning-icon">⚡</div>
-                
-                <h1>Your EV Decision Just Cost You <span class="highlight">₹2L</span></h1>
-                
-                <p class="hero-subtitle">
-                    You're about to spend ₹20 lakhs on an EV. You don't know:
-                    <br>• How many charging stations exist near you
-                    <br>• What subsidies you actually qualify for
-                    <br>• Your real ROI timeline
-                </p>
+<div class="container">
 
-                <div class="shock-stat">
-                    47% of Indians make energy decisions WITHOUT data
-                </div>
+<section class="hero">
 
-                <p class="hero-subtitle" style="margin-top: 30px;">
-                    We built an AI that fixes this in 30 seconds.
-                </p>
-            </div>
-        </div>
-    </section>
+<div class="logo">
+⚡ INDIA ENERGY FUTURE HQ
+</div>
 
-    <!-- PROBLEMS -->
-    <section class="problems-section">
-        <div class="container">
-            <h2 class="section-title">The 3 Ways You're Getting It Wrong</h2>
-            
-            <div class="problems-grid">
-                <div class="problem-card fade-in">
-                    <div class="problem-number">01</div>
-                    <div class="problem-title">Googling at 2 AM</div>
-                    <div class="problem-text">
-                        You find 47 conflicting YouTube videos, Reddit threads from 2019, and government websites that haven't been updated since Modi's first term.
-                    </div>
-                </div>
+<h1>
+EV Savings Calculator India
+</h1>
 
-                <div class="problem-card fade-in">
-                    <div class="problem-number">02</div>
-                    <div class="problem-title">Your Dad's Logic</div>
-                    <div class="problem-text">
-                        "My neighbor bought a solar panel. Very good." Cool, but his roof gets 6 hours of sun. Yours gets 3. Now you're confused again.
-                    </div>
-                </div>
+<p>
+Discover how much money you could save by switching from petrol to electric vehicles using AI-powered India-specific clean energy estimates.
+</p>
 
-                <div class="problem-card fade-in">
-                    <div class="problem-number">03</div>
-                    <div class="problem-title">Decision Paralysis</div>
-                    <div class="problem-text">
-                        You wait. You research. You call dealers. Meanwhile, you're still using that fuel-guzzling car. Every month costs you ₹4K extra.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="calculator">
 
-    <!-- SOLUTION -->
-    <section class="solution-section">
-        <div class="container">
-            <h2 class="section-title">What Actually Happens When You Get Data</h2>
-            
-            <div class="solution-grid">
-                <div class="solution-text fade-in">
-                    <h3>The Real Picture</h3>
-                    
-                    <div class="solution-point">
-                        <div class="solution-icon">✓</div>
-                        <div class="solution-text-item">
-                            <strong>Charging near you:</strong> 17 stations, 6 have fast chargers, 1 is 5 mins away
-                        </div>
-                    </div>
+<div class="input-grid">
 
-                    <div class="solution-point">
-                        <div class="solution-icon">✓</div>
-                        <div class="solution-text-item">
-                            <strong>Your subsidy:</strong> ₹1.5L available (Maharashtra-specific rules)
-                        </div>
-                    </div>
+<input type="number" id="petrolSpend" placeholder="Monthly Petrol Spend (₹)">
 
-                    <div class="solution-point">
-                        <div class="solution-icon">✓</div>
-                        <div class="solution-text-item">
-                            <strong>Real ROI:</strong> 6 months (based on YOUR electricity rates)
-                        </div>
-                    </div>
+<input type="number" id="dailyDistance" placeholder="Daily Driving Distance (km)">
 
-                    <div class="solution-point">
-                        <div class="solution-icon">✓</div>
-                        <div class="solution-text-item">
-                            <strong>Which EV is worth it:</strong> Tata Nexon EV (your budget), 450km range
-                        </div>
-                    </div>
-                </div>
+<input type="number" id="electricityCost" placeholder="Electricity Cost (₹/unit)">
 
-                <div class="data-viz fade-in">
-                    <div style="margin-bottom: 20px;">
-                        <div class="chart-label">Monthly Savings (EV vs Petrol)</div>
-                        <div class="chart-bar"></div>
-                    </div>
+<input type="text" id="cityName" placeholder="Your City">
 
-                    <div style="margin-bottom: 20px;">
-                        <div class="chart-label">Charging Availability (%)</div>
-                        <div class="chart-bar"></div>
-                    </div>
+</div>
 
-                    <div style="margin-bottom: 20px;">
-                        <div class="chart-label">Solar Subsidy Eligibility</div>
-                        <div class="chart-bar"></div>
-                    </div>
+<button onclick="calculateSavings()">
+⚡ Calculate My EV Savings
+</button>
 
-                    <div style="margin-bottom: 20px;">
-                        <div class="chart-label">Government Incentives Available</div>
-                        <div class="chart-bar"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="results">
 
-    <!-- SOCIAL PROOF -->
-    <section class="social-proof-section">
-        <div class="container">
-            <h2 class="section-title">What Real Users Are Saying</h2>
+<div class="card">
+<h3>Monthly Savings</h3>
+<p id="monthlySavings">₹0</p>
+</div>
 
-            <div style="text-align: center; margin: 40px 0;">
-                <div class="stat-counter" style="font-size: 48px;">1,247</div>
-                <div class="stat-label">Indians stopped making dumb energy decisions</div>
-            </div>
+<div class="card">
+<h3>Yearly Savings</h3>
+<p id="yearlySavings">₹0</p>
+</div>
 
-            <div class="testimonials">
-                <div class="testimonial-card">
-                    <div class="quote-mark">"</div>
-                    <div class="testimonial-text">
-                        "Just found out solar subsidy worth ₹3.5L for my roof. Where were you 6 months ago?"
-                    </div>
-                    <div class="testimonial-author">— Rahul, Bangalore</div>
-                </div>
+<div class="card">
+<h3>5-Year Savings</h3>
+<p id="fiveYearSavings">₹0</p>
+</div>
 
-                <div class="testimonial-card">
-                    <div class="quote-mark">"</div>
-                    <div class="testimonial-text">
-                        "EV charging map is a lifesaver. Actually shows live availability, not just locations."
-                    </div>
-                    <div class="testimonial-author">— Priya, Mumbai</div>
-                </div>
+<div class="card">
+<h3>Estimated ROI</h3>
+<p id="roiEstimate">0 yrs</p>
+</div>
 
-                <div class="testimonial-card">
-                    <div class="quote-mark">"</div>
-                    <div class="testimonial-text">
-                        "My dad finally understands clean energy ROI. This app explained it in 5 mins."
-                    </div>
-                    <div class="testimonial-author">— Arjun, Delhi</div>
-                </div>
-            </div>
-        </div>
-    </section>
+<div class="card">
+<h3>Recommended EV</h3>
+<p id="evCategory">-</p>
+</div>
 
-    <!-- CTA -->
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-container">
-                <h2 class="cta-title">Stop Guessing. Start Knowing.</h2>
-                <p class="cta-subtitle">
-                    Join 1,247 Indians who made energy decisions with ACTUAL DATA instead of vibes.
-                </p>
+</div>
 
-                <form id="ctaForm" onsubmit="handleSubmit(event)">
-                    <div class="form-group" style="position: relative;">
-                        <input 
-                            type="email" 
-                            id="emailInput" 
-                            class="email-input" 
-                            placeholder="your@email.com"
-                            required
-                        >
-                        <div class="email-glow"></div>
-                    </div>
+<div class="cta">
+<a href="#">
+Get Full AI Energy Report
+</a>
+</div>
 
-                    <button type="submit" class="cta-button" id="submitBtn">
-                        Unlock Instant Answers
-                    </button>
+<div class="disclaimer">
+Estimates vary by driving style and electricity tariffs.
+</div>
 
-                    <div class="urgency-message">
-                        ⚡ Limited spots. 500 left. (No, we're not lying)
-                    </div>
+</div>
 
-                    <div class="success-message" id="successMessage">
-                        ✓ You're in! Check your email for instant access.
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
+</section>
 
-    <!-- BENEFITS -->
-    <section class="benefits-section">
-        <div class="container">
-            <h2 class="section-title">What You Get (Immediately)</h2>
+<section class="waitlist">
 
-            <div class="benefits-grid">
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">🔌</div>
-                    <div class="benefit-title">Live Charging Map</div>
-                    <div class="benefit-desc">
-                        Real-time availability of EV chargers near you + pricing + fast vs slow chargers
-                    </div>
-                </div>
+<h2>
+Join India’s Energy Future ⚡
+</h2>
 
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">☀️</div>
-                    <div class="benefit-title">Solar Subsidy Calculator</div>
-                    <div class="benefit-desc">
-                        Know your eligibility, roof efficiency, and exact ROI timeline for YOUR city
-                    </div>
-                </div>
+<p>
+Get early access to AI-powered EV insights, subsidy alerts, charging intelligence, and clean energy tools for Indian users.
+</p>
 
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">📊</div>
-                    <div class="benefit-title">Energy ROI Breakdown</div>
-                    <div class="benefit-desc">
-                        Which investment actually makes sense: EV, Solar, or both? Data-backed answer.
-                    </div>
-                </div>
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
 
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">🚨</div>
-                    <div class="benefit-title">Policy Alerts</div>
-                    <div class="benefit-desc">
-                        Get notified BEFORE subsidies expire or new incentives launch in your state
-                    </div>
-                </div>
+<div class="email-box">
 
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">💡</div>
-                    <div class="benefit-title">AI Energy Advisor</div>
-                    <div class="benefit-desc">
-                        Ask anything. Get India-specific answers. Not generic ChatGPT nonsense.
-                    </div>
-                </div>
+<input type="email" name="email" placeholder="Enter your email" required>
 
-                <div class="benefit-item fade-in">
-                    <div class="benefit-icon">🤝</div>
-                    <div class="benefit-title">Community Access</div>
-                    <div class="benefit-desc">
-                        Join 1K+ Indians making clean energy decisions. Share experiences. Learn together.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<button type="submit">
+Join Waitlist
+</button>
 
-    <script>
-        // Scroll animations
-        const fadeInElements = document.querySelectorAll('.fade-in');
+</div>
 
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+</form>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+</section>
 
-        fadeInElements.forEach(el => observer.observe(el));
+<div class="footer">
+© 2026 India Energy Future HQ • AI-powered clean energy intelligence for India
+</div>
 
-        // Form handling
-        const emailInput = document.getElementById('emailInput');
-        const submitBtn = document.getElementById('submitBtn');
-        const form = document.getElementById('ctaForm');
-        const successMessage = document.getElementById('successMessage');
+</div>
 
-        function validateEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
+<script>
 
-        async function handleSubmit(event) {
-            event.preventDefault();
-            
-            const email = emailInput.value.trim();
-            
-            if (!validateEmail(email)) {
-                emailInput.style.borderColor = '#ef4444';
-                return;
-            }
+function calculateSavings(){
 
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '✓ Processing...';
+const petrolSpend = parseFloat(document.getElementById('petrolSpend').value) || 0;
 
-            try {
-                await new Promise(resolve => setTimeout(resolve, 1200));
-                successMessage.classList.add('show');
-                form.reset();
-                emailInput.style.borderColor = 'rgba(0, 240, 255, 0.4)';
+const dailyDistance = parseFloat(document.getElementById('dailyDistance').value) || 0;
 
-                setTimeout(() => {
-                    successMessage.classList.remove('show');
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = 'Unlock Instant Answers';
-                }, 3000);
-            } catch (error) {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Unlock Instant Answers';
-            }
-        }
+const electricityCost = parseFloat(document.getElementById('electricityCost').value) || 8;
 
-        emailInput.addEventListener('focus', () => {
-            emailInput.style.borderColor = 'rgba(0, 240, 255, 0.6)';
-        });
+const monthlyEVcost = dailyDistance * 30 * 0.18 * electricityCost;
 
-        emailInput.addEventListener('blur', () => {
-            emailInput.style.borderColor = 'rgba(0, 240, 255, 0.4)';
-        });
+const monthlySavings = petrolSpend - monthlyEVcost;
 
-        // Counter animation
-        function animateCounter(element, target, duration = 2000) {
-            let current = 0;
-            const increment = target / (duration / 16);
-            
-            const counter = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                    element.textContent = target.toLocaleString();
-                    clearInterval(counter);
-                } else {
-                    element.textContent = Math.floor(current).toLocaleString();
-                }
-            }, 16);
-        }
+const yearlySavings = monthlySavings * 12;
 
-        // Trigger counter when element comes into view
-        const statCounter = document.querySelector('.stat-counter');
-        if (statCounter) {
-            const observer2 = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateCounter(entry.target, 1247);
-                        observer2.unobserve(entry.target);
-                    }
-                });
-            });
-            observer2.observe(statCounter);
-        }
-    </script>
+const fiveYearSavings = yearlySavings * 5;
+
+const roiYears = (150000 / yearlySavings).toFixed(1);
+
+let evType = "Tata Tiago EV";
+
+if(dailyDistance > 40){
+evType = "Tata Nexon EV";
+}
+
+if(dailyDistance > 80){
+evType = "BYD Atto 3";
+}
+
+document.getElementById('monthlySavings').innerHTML =
+"₹" + Math.round(monthlySavings).toLocaleString();
+
+document.getElementById('yearlySavings').innerHTML =
+"₹" + Math.round(yearlySavings).toLocaleString();
+
+document.getElementById('fiveYearSavings').innerHTML =
+"₹" + Math.round(fiveYearSavings).toLocaleString();
+
+document.getElementById('roiEstimate').innerHTML =
+roiYears + " yrs";
+
+document.getElementById('evCategory').innerHTML =
+evType;
+
+}
+
+</script>
+
 </body>
 </html>
