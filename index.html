@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>India Energy Future HQ</title>
+<title>India Energy Future HQ | AI EV Advisor</title>
+
+<meta name="description" content="India’s AI-powered EV advisor. Discover EV savings, ROI, charging access, subsidies, and personalized EV recommendations.">
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
 
@@ -12,92 +16,318 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:Arial,sans-serif;
 }
 
 body{
+font-family:'DM Sans',sans-serif;
 background:#050816;
 color:white;
-min-height:100vh;
-padding:20px;
-display:flex;
-justify-content:center;
-align-items:center;
+overflow-x:hidden;
+background-image:
+radial-gradient(circle at top left,#7c3aed40,transparent 25%),
+radial-gradient(circle at bottom right,#06b6d440,transparent 25%);
 }
 
 .container{
-width:100%;
-max-width:500px;
-background:rgba(255,255,255,0.03);
-border:1px solid rgba(255,255,255,0.08);
-padding:30px;
-border-radius:30px;
-box-shadow:0 0 40px rgba(0,255,255,0.15);
-backdrop-filter:blur(10px);
+max-width:1200px;
+margin:auto;
+padding:20px;
 }
 
-h1{
-font-size:32px;
+.hero{
+padding:80px 20px 50px;
 text-align:center;
+}
+
+.logo{
+font-size:18px;
+font-weight:700;
+letter-spacing:2px;
+color:#06b6d4;
 margin-bottom:20px;
-background:linear-gradient(90deg,#00d4ff,#8b5cf6);
+}
+
+.hero h1{
+font-family:'Space Grotesk',sans-serif;
+font-size:clamp(42px,7vw,82px);
+font-weight:700;
+line-height:1.1;
+background:linear-gradient(90deg,#06b6d4,#8b5cf6,#22c55e);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+margin-bottom:25px;
 }
 
-.description{
-text-align:center;
-font-size:18px;
+.hero p{
+max-width:760px;
+margin:auto;
+font-size:20px;
 line-height:1.7;
-margin-bottom:35px;
 color:#cbd5e1;
+}
+
+.ai-box{
+margin-top:50px;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
+padding:35px;
+border-radius:30px;
+backdrop-filter:blur(25px);
+box-shadow:0 0 40px rgba(6,182,212,0.2);
+animation:fadeIn 1s ease;
+}
+
+.input-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+margin-top:30px;
 }
 
 input{
 width:100%;
 padding:18px;
-margin-bottom:20px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.1);
-background:#081028;
+border-radius:16px;
+border:1px solid #334155;
+background:#0f172a;
 color:white;
-font-size:18px;
+font-size:16px;
 outline:none;
+transition:0.3s;
+}
+
+input:focus{
+border-color:#06b6d4;
+box-shadow:0 0 25px rgba(6,182,212,0.3);
 }
 
 button{
 width:100%;
-padding:20px;
+padding:18px;
+margin-top:30px;
 border:none;
-border-radius:20px;
-font-size:22px;
-font-weight:bold;
-cursor:pointer;
+border-radius:18px;
 background:linear-gradient(90deg,#06b6d4,#8b5cf6);
 color:white;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
 transition:0.3s;
+box-shadow:0 0 35px rgba(139,92,246,0.45);
 }
 
 button:hover{
-transform:scale(1.02);
+transform:translateY(-4px);
+box-shadow:0 0 50px rgba(139,92,246,0.7);
 }
 
-.result-card{
-margin-top:25px;
+.results{
+margin-top:45px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
 padding:25px;
-border-radius:20px;
-background:#111827;
-box-shadow:0 0 25px rgba(0,255,255,0.2);
+border-radius:22px;
+transition:0.3s;
+animation:slideUp 1s ease;
 }
 
-.result-card h2{
-margin-bottom:15px;
+.card:hover{
+transform:translateY(-5px);
+border-color:#06b6d4;
 }
 
-.result-card p{
+.card h3{
+font-size:15px;
+color:#94a3b8;
 margin-bottom:12px;
+}
+
+.card p{
+font-size:28px;
+font-weight:700;
+font-family:'Space Grotesk',sans-serif;
+color:#22c55e;
+}
+
+.ai-recommendation{
+margin-top:45px;
+padding:35px;
+border-radius:28px;
+background:linear-gradient(135deg,#0f172a,#111827);
+border:1px solid rgba(6,182,212,0.2);
+box-shadow:0 0 35px rgba(6,182,212,0.15);
+animation:fadeIn 1.2s ease;
+}
+
+.ai-title{
+font-size:28px;
+margin-bottom:20px;
+font-family:'Space Grotesk',sans-serif;
+color:#06b6d4;
+}
+
+.ai-text{
 font-size:18px;
-line-height:1.5;
+line-height:1.8;
+color:#cbd5e1;
+}
+
+.highlight{
+color:#22c55e;
+font-weight:700;
+}
+
+.cta{
+margin-top:45px;
+text-align:center;
+}
+
+.cta a{
+display:inline-block;
+padding:18px 34px;
+border-radius:18px;
+background:linear-gradient(90deg,#8b5cf6,#06b6d4);
+text-decoration:none;
+color:white;
+font-weight:700;
+font-size:18px;
+transition:0.3s;
+box-shadow:0 0 40px rgba(6,182,212,0.4);
+}
+
+.cta a:hover{
+transform:scale(1.05);
+}
+
+.trust{
+margin-top:80px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.trust-card{
+background:rgba(255,255,255,0.04);
+padding:25px;
+border-radius:22px;
+border:1px solid rgba(255,255,255,0.07);
+}
+
+.trust-card h3{
+margin-bottom:10px;
+color:#06b6d4;
+}
+
+.trust-card p{
+color:#cbd5e1;
+line-height:1.7;
+}
+
+.waitlist{
+margin-top:90px;
+padding:45px;
+background:rgba(255,255,255,0.05);
+border-radius:30px;
+text-align:center;
+}
+
+.waitlist h2{
+font-size:42px;
+font-family:'Space Grotesk',sans-serif;
+margin-bottom:20px;
+}
+
+.waitlist p{
+color:#cbd5e1;
+margin-bottom:30px;
+font-size:18px;
+}
+
+.email-box{
+display:flex;
+gap:10px;
+max-width:650px;
+margin:auto;
+flex-wrap:wrap;
+}
+
+.email-box input{
+flex:1;
+}
+
+.disclaimer{
+margin-top:30px;
+font-size:13px;
+color:#94a3b8;
+text-align:center;
+}
+
+.footer{
+margin-top:80px;
+padding-bottom:40px;
+text-align:center;
+color:#64748b;
+font-size:14px;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(20px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes slideUp{
+from{
+opacity:0;
+transform:translateY(25px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@media(max-width:768px){
+
+.hero{
+padding-top:50px;
+}
+
+.input-grid{
+grid-template-columns:1fr;
+}
+
+.hero h1{
+font-size:44px;
+}
+
+.hero p{
+font-size:17px;
+}
+
+.waitlist h2{
+font-size:30px;
+}
+
+.ai-title{
+font-size:24px;
+}
+
+.ai-text{
+font-size:16px;
+}
+
 }
 
 </style>
@@ -107,90 +337,262 @@ line-height:1.5;
 
 <div class="container">
 
-<h1>⚡ India Energy Future HQ</h1>
+<section class="hero">
 
-<p class="description">
-Discover how much money you could save by switching
-from petrol to electric vehicles using AI-powered
-India-specific clean energy estimates.
+<div class="logo">
+⚡ INDIA ENERGY FUTURE HQ
+</div>
+
+<h1>
+Your EV Decision Could Save You ₹5L
+</h1>
+
+<p>
+India’s AI-powered clean energy advisor helping you choose the best EV based on your budget, city, driving style, charging access, and future savings.
 </p>
 
-<input type="number" id="petrolSpend" placeholder="Monthly Petrol Spend ₹" />
+<div class="ai-box">
 
-<input type="number" id="dailyDistance" placeholder="Daily Driving Distance (KM)" />
+<div class="input-grid">
 
-<input type="number" id="electricityCost" placeholder="Electricity Cost Per Unit ₹" />
+<input type="number" id="petrolSpend" placeholder="Monthly Petrol Spend (₹)">
 
-<input type="text" id="cityName" placeholder="City Name" />
+<input type="number" id="dailyDistance" placeholder="Daily Driving Distance (km)">
 
-<button onclick="calculateEVSavings()">
-⚡ Calculate My EV Savings
+<input type="number" id="electricityCost" placeholder="Electricity Cost (₹/unit)">
+
+<input type="text" id="cityName" placeholder="Your City">
+
+<input type="number" id="budget" placeholder="EV Budget (₹)">
+
+</div>
+
+<button onclick="generateAIReport()">
+⚡ Generate AI Energy Report
 </button>
 
-<div id="results"></div>
+<div class="results">
+
+<div class="card">
+<h3>Monthly Savings</h3>
+<p id="monthlySavings">₹0</p>
+</div>
+
+<div class="card">
+<h3>Yearly Savings</h3>
+<p id="yearlySavings">₹0</p>
+</div>
+
+<div class="card">
+<h3>5-Year Savings</h3>
+<p id="fiveYearSavings">₹0</p>
+</div>
+
+<div class="card">
+<h3>Estimated ROI</h3>
+<p id="roiEstimate">0 yrs</p>
+</div>
+
+<div class="card">
+<h3>Charging Score</h3>
+<p id="chargingScore">0%</p>
+</div>
+
+<div class="card">
+<h3>State Subsidy</h3>
+<p id="subsidyEstimate">₹0</p>
+</div>
+
+</div>
+
+<div class="ai-recommendation">
+
+<div class="ai-title">
+🤖 AI Recommendation
+</div>
+
+<div class="ai-text" id="aiText">
+
+Enter your details to receive a personalized EV recommendation powered by India Energy Future AI.
+
+</div>
+
+</div>
+
+<div class="cta">
+<a href="#">
+Unlock Full AI Energy Advisor
+</a>
+</div>
+
+<div class="disclaimer">
+Estimates vary by driving style, electricity tariffs, subsidies, and EV usage patterns.
+</div>
+
+</div>
+
+</section>
+
+<section class="trust">
+
+<div class="trust-card">
+<h3>⚡ India Energy Intelligence</h3>
+<p>
+AI-powered EV recommendations built for Indian roads, Indian cities, and Indian charging infrastructure.
+</p>
+</div>
+
+<div class="trust-card">
+<h3>📊 Smart ROI Analysis</h3>
+<p>
+Compare petrol costs, electricity usage, charging access, and future savings before buying an EV.
+</p>
+</div>
+
+<div class="trust-card">
+<h3>🚗 Personalized EV Matching</h3>
+<p>
+Get matched with EVs like Tata Nexon EV, Tiago EV, MG ZS EV, BYD Atto 3, and Mahindra XUV400.
+</p>
+</div>
+
+</section>
+
+<section class="waitlist">
+
+<h2>
+Join India’s Clean Energy Future ⚡
+</h2>
+
+<p>
+Get early access to AI energy tools, subsidy alerts, charging intelligence, and future EV insights.
+</p>
+
+<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+
+<div class="email-box">
+
+<input type="email" name="email" placeholder="Enter your email" required>
+
+<button type="submit">
+Join Waitlist
+</button>
+
+</div>
+
+</form>
+
+</section>
+
+<div class="footer">
+© 2026 India Energy Future HQ • AI-powered clean energy intelligence for India
+</div>
 
 </div>
 
 <script>
 
-function calculateEVSavings() {
+function generateAIReport(){
 
-const petrolSpend =
-parseFloat(document.getElementById("petrolSpend").value) || 0;
+const petrolSpend = parseFloat(document.getElementById('petrolSpend').value) || 0;
 
-const dailyDistance =
-parseFloat(document.getElementById("dailyDistance").value) || 0;
+const dailyDistance = parseFloat(document.getElementById('dailyDistance').value) || 0;
 
-const electricityCost =
-parseFloat(document.getElementById("electricityCost").value) || 0;
+const electricityCost = parseFloat(document.getElementById('electricityCost').value) || 8;
 
-const city =
-document.getElementById("cityName").value;
+const city = document.getElementById('cityName').value || "your city";
 
-const petrolPrice = 105;
-const petrolMileage = 15;
-const evEfficiency = 0.15;
+const budget = parseFloat(document.getElementById('budget').value) || 1000000;
 
-const monthlyDistance = dailyDistance * 30;
+const monthlyEVcost = dailyDistance * 30 * 0.18 * electricityCost;
 
-const petrolLitres = monthlyDistance / petrolMileage;
+const monthlySavings = petrolSpend - monthlyEVcost;
 
-const petrolMonthlyCost =
-petrolLitres * petrolPrice;
+const yearlySavings = monthlySavings * 12;
 
-const evUnits =
-monthlyDistance * evEfficiency;
+const fiveYearSavings = yearlySavings * 5;
 
-const evMonthlyCost =
-evUnits * electricityCost;
+const roiYears = (150000 / yearlySavings).toFixed(1);
 
-const monthlySavings =
-petrolMonthlyCost - evMonthlyCost;
+let chargingScore = "82%";
 
-const yearlySavings =
-monthlySavings * 12;
+let subsidy = "₹1.5L";
 
-document.getElementById("results").innerHTML = `
+let ev = "Tata Tiago EV";
 
-<div class="result-card">
+let reason = "Ideal for affordable city driving and lower maintenance costs.";
 
-<h2>⚡ EV Savings Report</h2>
+if(dailyDistance > 40){
+ev = "Tata Nexon EV";
+reason = "Excellent balance of range, charging network, and long-term value for Indian roads.";
+}
 
-<p><strong>City:</strong> ${city}</p>
+if(dailyDistance > 80){
+ev = "BYD Atto 3";
+reason = "Best suited for high-distance driving, premium comfort, and long battery range.";
+}
 
-<p><strong>Monthly Petrol Cost:</strong>
-₹${petrolMonthlyCost.toFixed(0)}</p>
+if(budget > 2500000){
+ev = "MG ZS EV";
+reason = "Premium EV choice with advanced technology and superior driving comfort.";
+}
 
-<p><strong>Monthly EV Cost:</strong>
-₹${evMonthlyCost.toFixed(0)}</p>
+document.getElementById('monthlySavings').innerHTML =
+"₹" + Math.round(monthlySavings).toLocaleString();
 
-<p><strong>Monthly Savings:</strong>
-₹${monthlySavings.toFixed(0)}</p>
+document.getElementById('yearlySavings').innerHTML =
+"₹" + Math.round(yearlySavings).toLocaleString();
 
-<p><strong>Yearly Savings:</strong>
-₹${yearlySavings.toFixed(0)}</p>
+document.getElementById('fiveYearSavings').innerHTML =
+"₹" + Math.round(fiveYearSavings).toLocaleString();
 
-</div>
+document.getElementById('roiEstimate').innerHTML =
+roiYears + " yrs";
+
+document.getElementById('chargingScore').innerHTML =
+chargingScore;
+
+document.getElementById('subsidyEstimate').innerHTML =
+subsidy;
+
+document.getElementById('aiText').innerHTML = `
+⚡ Based on your driving pattern in <span class="highlight">${city}</span>:
+
+<br><br>
+
+✓ Estimated yearly savings: <span class="highlight">₹${Math.round(yearlySavings).toLocaleString()}</span>
+
+<br><br>
+
+✓ Fast charging availability near your region: <span class="highlight">${chargingScore}</span>
+
+<br><br>
+
+✓ Recommended EV: <span class="highlight">${ev}</span>
+
+<br><br>
+
+✓ Estimated ROI timeline: <span class="highlight">${roiYears} years</span>
+
+<br><br>
+
+Why this EV?
+
+<br><br>
+
+• ${reason}
+
+<br>
+
+• Lower running cost compared to petrol vehicles
+
+<br>
+
+• Better future resale potential in India
+
+<br>
+
+• Suitable for your daily driving habits
 
 `;
 
