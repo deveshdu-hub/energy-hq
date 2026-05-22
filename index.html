@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>India Energy Future HQ ⚡</title>
+
+<meta name="description" content="India’s futuristic AI-powered EV, Solar, Battery & Clean Energy Intelligence Platform.">
 
 <style>
 
@@ -12,146 +14,269 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    background:linear-gradient(180deg,#001220,#001d33);
+    background:#030712;
     color:white;
-    min-height:100vh;
-    padding:20px;
+    overflow-x:hidden;
 }
 
-.container{
-    max-width:500px;
-    margin:auto;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(20px);
-    border-radius:30px;
-    padding:30px 25px;
-    box-shadow:0 0 40px rgba(0,200,255,0.15);
-    border:1px solid rgba(255,255,255,0.08);
+/* BACKGROUND GLOW */
+
+.bg-glow{
+    position:fixed;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(0,170,255,0.15);
+    filter:blur(120px);
+    top:-100px;
+    right:-100px;
+    z-index:-1;
 }
 
-h1{
-    font-size:48px;
-    line-height:1.2;
+.bg-glow2{
+    position:fixed;
+    width:400px;
+    height:400px;
+    border-radius:50%;
+    background:rgba(140,0,255,0.18);
+    filter:blur(120px);
+    bottom:-120px;
+    left:-120px;
+    z-index:-1;
+}
+
+/* HEADER */
+
+header{
+    padding:25px 20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    background:linear-gradient(90deg,#00d4ff,#9b5cff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.whatsapp-btn{
+    background:linear-gradient(90deg,#25D366,#128C7E);
+    padding:12px 18px;
+    border-radius:15px;
+    text-decoration:none;
+    color:white;
+    font-size:14px;
+    font-weight:bold;
+}
+
+/* HERO */
+
+.hero{
+    padding:40px 20px;
+    text-align:center;
+}
+
+.hero h1{
+    font-size:52px;
+    line-height:1.15;
     margin-bottom:20px;
-    text-align:center;
 }
 
-.subtitle{
-    text-align:center;
-    color:#c7d4e5;
+.hero p{
+    color:#cbd5e1;
     font-size:20px;
-    line-height:1.6;
-    margin-bottom:35px;
+    line-height:1.7;
+    max-width:800px;
+    margin:auto;
 }
 
-.form-grid{
+/* GLASS CARD */
+
+.glass-card{
+    width:92%;
+    max-width:900px;
+    margin:40px auto;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:35px;
+    backdrop-filter:blur(20px);
+    padding:30px;
+    box-shadow:0 0 40px rgba(0,180,255,0.15);
+}
+
+/* GRID */
+
+.grid{
     display:grid;
-    grid-template-columns:1fr;
-    gap:15px;
-    margin-bottom:25px;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
 }
 
-input, select{
+/* INPUT */
+
+input,select{
     width:100%;
     padding:18px;
+    border:none;
     border-radius:18px;
-    border:1px solid rgba(255,255,255,0.15);
-    background:rgba(10,15,40,0.9);
+    background:rgba(8,15,35,0.95);
     color:white;
     font-size:16px;
     outline:none;
+    border:1px solid rgba(255,255,255,0.08);
 }
 
 input::placeholder{
-    color:#c7d4e5;
+    color:#94a3b8;
 }
 
-select{
-    color:white;
-}
+/* BUTTON */
 
-button{
+.main-btn{
     width:100%;
-    border:none;
+    margin-top:25px;
     padding:22px;
+    border:none;
     border-radius:22px;
-    margin-top:18px;
+    background:linear-gradient(90deg,#00d4ff,#8b5cf6);
+    color:white;
     font-size:20px;
     font-weight:bold;
     cursor:pointer;
     transition:0.3s;
+    box-shadow:0 0 35px rgba(0,180,255,0.25);
 }
 
-.primary-btn{
-    background:linear-gradient(90deg,#00c6ff,#8b5cf6);
-    color:white;
-    box-shadow:0 0 25px rgba(0,200,255,0.35);
-}
-
-.secondary-btn{
-    background:linear-gradient(90deg,#25D366,#128C7E);
-    color:white;
-    box-shadow:0 0 25px rgba(37,211,102,0.35);
-}
-
-button:hover{
+.main-btn:hover{
     transform:scale(1.02);
 }
 
-.result-box{
-    margin-top:30px;
-    background:rgba(255,255,255,0.06);
-    border-radius:20px;
-    padding:20px;
+/* REPORT */
+
+.report{
+    margin-top:35px;
     display:none;
 }
 
-.result-box h2{
+.report-card{
+    background:rgba(255,255,255,0.04);
+    border-radius:25px;
+    padding:22px;
+    margin-bottom:20px;
+    border:1px solid rgba(255,255,255,0.08);
+}
+
+.report-card h2{
     margin-bottom:15px;
+    color:#00d4ff;
 }
 
-.result-box p{
-    margin-bottom:10px;
-    line-height:1.6;
-    color:#d6e2f0;
-}
-
-.footer{
-    text-align:center;
-    margin-top:30px;
-    color:#7f96b2;
-    font-size:14px;
+.report-card p{
+    color:#dbeafe;
     line-height:1.8;
+    margin-bottom:10px;
 }
 
-.whatsapp-box{
-    margin-top:20px;
-    text-align:center;
+/* AI CHAT */
+
+.chat-box{
+    margin-top:40px;
 }
 
-.whatsapp-link{
-    display:inline-block;
-    padding:14px 24px;
+.chat-input{
+    display:flex;
+    gap:15px;
+    margin-top:15px;
+}
+
+.chat-input input{
+    flex:1;
+}
+
+.chat-btn{
+    padding:18px 25px;
+    border:none;
     border-radius:18px;
-    text-decoration:none;
-    background:linear-gradient(90deg,#25D366,#128C7E);
+    background:linear-gradient(90deg,#00d4ff,#8b5cf6);
     color:white;
     font-weight:bold;
-    box-shadow:0 0 20px rgba(37,211,102,0.35);
+    cursor:pointer;
 }
 
-@media(max-width:600px){
+.ai-response{
+    margin-top:20px;
+    background:rgba(255,255,255,0.04);
+    border-radius:20px;
+    padding:20px;
+    line-height:1.8;
+    color:#dbeafe;
+    border:1px solid rgba(255,255,255,0.08);
+    display:none;
+}
 
-    h1{
-        font-size:32px;
+/* FEATURE CARDS */
+
+.features{
+    width:92%;
+    max-width:1200px;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+}
+
+.feature{
+    background:rgba(255,255,255,0.04);
+    border-radius:28px;
+    padding:28px;
+    border:1px solid rgba(255,255,255,0.08);
+    backdrop-filter:blur(20px);
+}
+
+.feature h3{
+    margin-top:15px;
+    margin-bottom:12px;
+}
+
+.feature p{
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:50px 20px;
+    color:#94a3b8;
+    line-height:1.9;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+    .hero h1{
+        font-size:36px;
     }
 
-    .subtitle{
-        font-size:18px;
+    .hero p{
+        font-size:17px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .chat-input{
+        flex-direction:column;
     }
 
 }
@@ -161,127 +286,264 @@ button:hover{
 
 <body>
 
-<div class="container">
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+
+<header>
+
+<div class="logo">
+India Energy Future HQ ⚡
+</div>
+
+<a class="whatsapp-btn"
+href="https://wa.me/919250036334?text=Hi%20India%20Energy%20Future%20HQ%20⚡"
+target="_blank">
+
+WhatsApp Support
+
+</a>
+
+</header>
+
+<section class="hero">
 
 <h1>
-Join India’s Clean<br>
-Energy Future ⚡
+India’s AI Brain<br>
+for EV & Clean Energy ⚡
 </h1>
 
-<p class="subtitle">
-Get early access to AI energy tools, subsidy alerts, charging intelligence, and future EV insights.
+<p>
+Discover the best EVs, subsidies, solar savings, charging intelligence,
+battery insights, and future mobility recommendations powered by AI.
 </p>
 
-<div class="form-grid">
+</section>
+
+<div class="glass-card">
+
+<div class="grid">
+
+<select id="state">
+<option>Select State</option>
+<option>Delhi</option>
+<option>Maharashtra</option>
+<option>Karnataka</option>
+<option>Gujarat</option>
+<option>Tamil Nadu</option>
+</select>
+
+<select id="city">
+<option>Select City</option>
+<option>New Delhi</option>
+<option>Mumbai</option>
+<option>Bangalore</option>
+<option>Ahmedabad</option>
+<option>Chennai</option>
+</select>
 
 <input type="number" id="km" placeholder="Monthly KM Driven">
 
-<input type="number" id="petrol" placeholder="Petrol Price ₹/Litre">
+<input type="number" id="budget" placeholder="Budget ₹">
 
-<input type="number" id="electricity" placeholder="Electricity Cost ₹/Unit">
+<select id="house">
+<option>Home Type</option>
+<option>Apartment</option>
+<option>Independent House</option>
+</select>
 
-<select id="ev">
-<option value="">Select EV</option>
-<option value="Tata Nexon EV">Tata Nexon EV</option>
-<option value="MG ZS EV">MG ZS EV</option>
-<option value="Mahindra XUV400">Mahindra XUV400</option>
-<option value="Tata Tiago EV">Tata Tiago EV</option>
-<option value="BYD Atto 3">BYD Atto 3</option>
+<select id="usage">
+<option>Vehicle Usage</option>
+<option>Office Commute</option>
+<option>Family Use</option>
+<option>Commercial</option>
+<option>Long Travel</option>
+</select>
+
+<select id="charger">
+<option>Charging Access</option>
+<option>Home Charging</option>
+<option>Society Parking</option>
+<option>Public Charging Only</option>
+</select>
+
+<select id="solar">
+<option>Interested in Solar?</option>
+<option>Yes</option>
+<option>No</option>
 </select>
 
 </div>
 
-<button class="primary-btn" onclick="calculateSavings()">
-⚡ Get AI EV Savings Report
+<button class="main-btn" onclick="generateReport()">
+⚡ Generate AI Energy Intelligence Report
 </button>
 
-<button class="secondary-btn" onclick="joinWaitlist()">
-📲 Join WhatsApp Waitlist
+<div class="report" id="report">
+
+<div class="report-card">
+
+<h2>⚡ Personalized AI Energy Report</h2>
+
+<p id="savings"></p>
+<p id="ev"></p>
+<p id="charging"></p>
+<p id="solarAdvice"></p>
+<p id="future"></p>
+
+</div>
+
+</div>
+
+<div class="chat-box">
+
+<h2>🤖 AI Energy Assistant</h2>
+
+<div class="chat-input">
+
+<input type="text"
+id="question"
+placeholder="Ask AI anything about EVs, charging, batteries, subsidies, solar...">
+
+<button class="chat-btn" onclick="askAI()">
+Ask AI
 </button>
 
-<div class="whatsapp-box">
+</div>
 
-<a class="whatsapp-link"
-href="https://wa.me/919250036334?text=Hi%20India%20Energy%20Future%20HQ%20⚡%20I%20want%20to%20join%20the%20EV%20waitlist"
-target="_blank">
-
-Chat on WhatsApp → 9250036334
-
-</a>
+<div class="ai-response" id="aiResponse"></div>
 
 </div>
 
-<div class="result-box" id="result">
-
-<h2>⚡ AI EV Savings Report</h2>
-
-<p id="monthlySaving"></p>
-
-<p id="yearlySaving"></p>
-
-<p id="recommendation"></p>
-
 </div>
 
-<div class="footer">
-India Energy Future HQ © 2026<br>
-Future Mobility • AI • Clean Energy
+<section class="features">
+
+<div class="feature">
+<h3>🚗 AI EV Advisor</h3>
+<p>Get the best EV recommendation based on your city, budget, driving pattern and charging access.</p>
 </div>
 
+<div class="feature">
+<h3>🔋 Battery Intelligence</h3>
+<p>AI predicts long-term battery savings, charging ROI and future maintenance costs.</p>
 </div>
+
+<div class="feature">
+<h3>☀ Solar + EV Integration</h3>
+<p>Discover if rooftop solar can reduce your EV charging cost close to zero.</p>
+</div>
+
+<div class="feature">
+<h3>📈 Future Mobility Dashboard</h3>
+<p>Track future energy trends, EV adoption and India’s clean energy revolution.</p>
+</div>
+
+</section>
+
+<footer>
+
+India Energy Future HQ ⚡<br>
+AI • EV • Solar • Future Mobility • Clean Energy<br><br>
+
+WhatsApp: 9250036334
+
+</footer>
 
 <script>
 
-function calculateSavings(){
+function generateReport(){
 
-    const km = parseFloat(document.getElementById("km").value);
-    const petrol = parseFloat(document.getElementById("petrol").value);
-    const electricity = parseFloat(document.getElementById("electricity").value);
-    const ev = document.getElementById("ev").value;
+    const km = document.getElementById("km").value;
+    const budget = document.getElementById("budget").value;
+    const house = document.getElementById("house").value;
+    const solar = document.getElementById("solar").value;
 
-    if(!km || !petrol || !electricity || !ev){
+    let monthlySavings = Math.round(km * 4.5);
 
-        alert("Please fill all details");
+    document.getElementById("savings").innerHTML =
+    "💰 Estimated Monthly Fuel Savings: ₹" + monthlySavings;
 
-        return;
+    if(budget < 1200000){
+
+        document.getElementById("ev").innerHTML =
+        "🚗 Recommended EV: Tata Tiago EV — ideal for city driving and low running costs.";
+
+    } else {
+
+        document.getElementById("ev").innerHTML =
+        "🚗 Recommended EV: Tata Nexon EV — balanced range, features and long-term value.";
+
     }
 
-    const petrolCarMileage = 15;
+    if(house === "Apartment"){
 
-    const evEfficiency = 0.15;
+        document.getElementById("charging").innerHTML =
+        "🔌 Charging Insight: Society charging permissions may be required.";
 
-    const monthlyPetrolCost =
-        (km / petrolCarMileage) * petrol;
+    } else {
 
-    const monthlyEVCost =
-        km * evEfficiency * electricity;
+        document.getElementById("charging").innerHTML =
+        "🔌 Charging Insight: Home charger installation is highly suitable.";
 
-    const monthlySavings =
-        monthlyPetrolCost - monthlyEVCost;
+    }
 
-    const yearlySavings =
-        monthlySavings * 12;
+    if(solar === "Yes"){
 
-    document.getElementById("monthlySaving").innerHTML =
-        "💰 Estimated Monthly Savings: ₹" +
-        Math.round(monthlySavings);
+        document.getElementById("solarAdvice").innerHTML =
+        "☀ AI Solar Recommendation: Rooftop solar can reduce EV charging costs by 60–90%.";
 
-    document.getElementById("yearlySaving").innerHTML =
-        "📈 Estimated Yearly Savings: ₹" +
-        Math.round(yearlySavings);
+    } else {
 
-    document.getElementById("recommendation").innerHTML =
-        "🤖 AI Recommendation: Based on your usage, <b>" +
-        ev +
-        "</b> is a smart EV choice for long-term savings and clean driving.";
+        document.getElementById("solarAdvice").innerHTML =
+        "☀ AI Insight: Solar integration can significantly improve long-term EV savings.";
 
-    document.getElementById("result").style.display = "block";
+    }
+
+    document.getElementById("future").innerHTML =
+    "📈 Future Prediction: EV adoption in India is expected to grow rapidly over the next 5 years.";
+
+    document.getElementById("report").style.display = "block";
+
 }
 
-function joinWaitlist(){
+function askAI(){
 
-    window.location.href =
-    "https://wa.me/919250036334?text=Hi%20India%20Energy%20Future%20HQ%20⚡%20I%20want%20to%20join%20the%20EV%20waitlist";
+    const question =
+    document.getElementById("question").value.toLowerCase();
+
+    let answer = "";
+
+    if(question.includes("best ev")){
+
+        answer =
+        "⚡ AI Insight: Tata Nexon EV and MG ZS EV are currently among the strongest all-round EVs in India.";
+
+    }
+
+    else if(question.includes("charging")){
+
+        answer =
+        "🔌 AI Charging Advice: Home charging is the cheapest and most efficient EV charging solution.";
+
+    }
+
+    else if(question.includes("solar")){
+
+        answer =
+        "☀ Solar + EV can dramatically reduce long-term energy expenses and dependency on fuel.";
+
+    }
+
+    else{
+
+        answer =
+        "🤖 AI Energy Assistant: India’s EV ecosystem is rapidly evolving. Always compare charging access, subsidy benefits, battery warranty and long-term running cost before purchase.";
+
+    }
+
+    document.getElementById("aiResponse").style.display = "block";
+
+    document.getElementById("aiResponse").innerHTML = answer;
 
 }
 
