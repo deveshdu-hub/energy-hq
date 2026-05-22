@@ -258,3 +258,34 @@ function calculateSavings(){
 
     const monthlySavings =
         monthlyPetrolCost - monthlyEVCost;
+
+    const yearlySavings =
+        monthlySavings * 12;
+
+    document.getElementById("monthlySaving").innerHTML =
+        "💰 Estimated Monthly Savings: ₹" +
+        Math.round(monthlySavings);
+
+    document.getElementById("yearlySaving").innerHTML =
+        "📈 Estimated Yearly Savings: ₹" +
+        Math.round(yearlySavings);
+
+    document.getElementById("recommendation").innerHTML =
+        "🤖 AI Recommendation: Based on your usage, <b>" +
+        ev +
+        "</b> is a smart EV choice for long-term savings and clean driving.";
+
+    document.getElementById("result").style.display = "block";
+}
+
+function joinWaitlist(){
+
+    window.location.href =
+    "https://wa.me/919250036334?text=Hi%20India%20Energy%20Future%20HQ%20⚡%20I%20want%20to%20join%20the%20EV%20waitlist";
+
+}
+
+</script>
+
+</body>
+</html>
