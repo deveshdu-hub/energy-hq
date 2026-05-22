@@ -6,7 +6,7 @@
 
 <title>India Energy Future HQ ⚡</title>
 
-<meta name="description" content="India’s futuristic AI-powered EV, Solar, Battery & Clean Energy Intelligence Platform.">
+<meta name="description" content="India's futuristic AI-powered EV, Solar & Clean Energy Intelligence Platform.">
 
 <style>
 
@@ -23,28 +23,28 @@ body{
     overflow-x:hidden;
 }
 
-/* BACKGROUND GLOW */
+/* BACKGROUND */
 
-.bg-glow{
+.bg1{
     position:fixed;
     width:500px;
     height:500px;
+    background:rgba(0,180,255,0.15);
     border-radius:50%;
-    background:rgba(0,170,255,0.15);
     filter:blur(120px);
     top:-100px;
     right:-100px;
     z-index:-1;
 }
 
-.bg-glow2{
+.bg2{
     position:fixed;
-    width:400px;
-    height:400px;
-    border-radius:50%;
+    width:450px;
+    height:450px;
     background:rgba(140,0,255,0.18);
+    border-radius:50%;
     filter:blur(120px);
-    bottom:-120px;
+    bottom:-150px;
     left:-120px;
     z-index:-1;
 }
@@ -52,7 +52,7 @@ body{
 /* HEADER */
 
 header{
-    padding:25px 20px;
+    padding:22px;
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -66,14 +66,14 @@ header{
     -webkit-text-fill-color:transparent;
 }
 
-.whatsapp-btn{
+.whatsapp{
     background:linear-gradient(90deg,#25D366,#128C7E);
     padding:12px 18px;
-    border-radius:15px;
+    border-radius:16px;
     text-decoration:none;
     color:white;
-    font-size:14px;
     font-weight:bold;
+    font-size:14px;
 }
 
 /* HERO */
@@ -84,30 +84,30 @@ header{
 }
 
 .hero h1{
-    font-size:52px;
+    font-size:56px;
     line-height:1.15;
     margin-bottom:20px;
 }
 
 .hero p{
-    color:#cbd5e1;
-    font-size:20px;
-    line-height:1.7;
-    max-width:800px;
+    max-width:900px;
     margin:auto;
+    color:#cbd5e1;
+    line-height:1.9;
+    font-size:20px;
 }
 
 /* GLASS CARD */
 
-.glass-card{
+.card{
     width:92%;
-    max-width:900px;
+    max-width:1000px;
     margin:40px auto;
     background:rgba(255,255,255,0.05);
-    border:1px solid rgba(255,255,255,0.08);
     border-radius:35px;
-    backdrop-filter:blur(20px);
     padding:30px;
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.08);
     box-shadow:0 0 40px rgba(0,180,255,0.15);
 }
 
@@ -119,7 +119,7 @@ header{
     gap:18px;
 }
 
-/* INPUT */
+/* INPUTS */
 
 input,select{
     width:100%;
@@ -129,8 +129,8 @@ input,select{
     background:rgba(8,15,35,0.95);
     color:white;
     font-size:16px;
-    outline:none;
     border:1px solid rgba(255,255,255,0.08);
+    outline:none;
 }
 
 input::placeholder{
@@ -144,7 +144,7 @@ input::placeholder{
     margin-top:25px;
     padding:22px;
     border:none;
-    border-radius:22px;
+    border-radius:24px;
     background:linear-gradient(90deg,#00d4ff,#8b5cf6);
     color:white;
     font-size:20px;
@@ -167,8 +167,8 @@ input::placeholder{
 
 .report-card{
     background:rgba(255,255,255,0.04);
-    border-radius:25px;
-    padding:22px;
+    border-radius:28px;
+    padding:25px;
     margin-bottom:20px;
     border:1px solid rgba(255,255,255,0.08);
 }
@@ -179,30 +179,30 @@ input::placeholder{
 }
 
 .report-card p{
+    line-height:1.9;
     color:#dbeafe;
-    line-height:1.8;
-    margin-bottom:10px;
+    margin-bottom:14px;
 }
 
 /* AI CHAT */
 
-.chat-box{
+.ai-chat{
     margin-top:40px;
 }
 
-.chat-input{
+.chat-box{
+    margin-top:18px;
     display:flex;
     gap:15px;
-    margin-top:15px;
 }
 
-.chat-input input{
+.chat-box input{
     flex:1;
 }
 
-.chat-btn{
-    padding:18px 25px;
+.ask-btn{
     border:none;
+    padding:18px 25px;
     border-radius:18px;
     background:linear-gradient(90deg,#00d4ff,#8b5cf6);
     color:white;
@@ -210,18 +210,18 @@ input::placeholder{
     cursor:pointer;
 }
 
-.ai-response{
+.ai-answer{
     margin-top:20px;
     background:rgba(255,255,255,0.04);
-    border-radius:20px;
-    padding:20px;
-    line-height:1.8;
-    color:#dbeafe;
+    border-radius:22px;
+    padding:22px;
     border:1px solid rgba(255,255,255,0.08);
+    line-height:1.9;
+    color:#dbeafe;
     display:none;
 }
 
-/* FEATURE CARDS */
+/* FEATURE SECTION */
 
 .features{
     width:92%;
@@ -237,17 +237,16 @@ input::placeholder{
     border-radius:28px;
     padding:28px;
     border:1px solid rgba(255,255,255,0.08);
-    backdrop-filter:blur(20px);
 }
 
 .feature h3{
-    margin-top:15px;
     margin-bottom:12px;
+    margin-top:12px;
 }
 
 .feature p{
     color:#cbd5e1;
-    line-height:1.7;
+    line-height:1.8;
 }
 
 /* FOOTER */
@@ -264,7 +263,7 @@ footer{
 @media(max-width:768px){
 
     .hero h1{
-        font-size:36px;
+        font-size:38px;
     }
 
     .hero p{
@@ -275,7 +274,7 @@ footer{
         grid-template-columns:1fr;
     }
 
-    .chat-input{
+    .chat-box{
         flex-direction:column;
     }
 
@@ -286,8 +285,8 @@ footer{
 
 <body>
 
-<div class="bg-glow"></div>
-<div class="bg-glow2"></div>
+<div class="bg1"></div>
+<div class="bg2"></div>
 
 <header>
 
@@ -295,7 +294,7 @@ footer{
 India Energy Future HQ ⚡
 </div>
 
-<a class="whatsapp-btn"
+<a class="whatsapp"
 href="https://wa.me/919250036334?text=Hi%20India%20Energy%20Future%20HQ%20⚡"
 target="_blank">
 
@@ -308,18 +307,18 @@ WhatsApp Support
 <section class="hero">
 
 <h1>
-India’s AI Brain<br>
-for EV & Clean Energy ⚡
+Your Personal AI Guide<br>
+for India’s Energy Future ⚡
 </h1>
 
 <p>
-Discover the best EVs, subsidies, solar savings, charging intelligence,
-battery insights, and future mobility recommendations powered by AI.
+From EV buying to charging, solar savings, battery intelligence and future mobility —
+India Energy Future HQ helps families make smarter, cleaner and more confident decisions with AI-powered guidance built for real Indian lifestyles.
 </p>
 
 </section>
 
-<div class="glass-card">
+<div class="card">
 
 <div class="grid">
 
@@ -343,7 +342,7 @@ battery insights, and future mobility recommendations powered by AI.
 
 <input type="number" id="km" placeholder="Monthly KM Driven">
 
-<input type="number" id="budget" placeholder="Budget ₹">
+<input type="number" id="budget" placeholder="Your EV Budget ₹">
 
 <select id="house">
 <option>Home Type</option>
@@ -351,19 +350,19 @@ battery insights, and future mobility recommendations powered by AI.
 <option>Independent House</option>
 </select>
 
-<select id="usage">
-<option>Vehicle Usage</option>
-<option>Office Commute</option>
-<option>Family Use</option>
-<option>Commercial</option>
-<option>Long Travel</option>
+<select id="family">
+<option>Family Size</option>
+<option>1-2 Members</option>
+<option>3-5 Members</option>
+<option>Large Family</option>
 </select>
 
-<select id="charger">
-<option>Charging Access</option>
-<option>Home Charging</option>
-<option>Society Parking</option>
-<option>Public Charging Only</option>
+<select id="usage">
+<option>Driving Purpose</option>
+<option>Office Commute</option>
+<option>Family Trips</option>
+<option>Commercial Usage</option>
+<option>Long Highway Travel</option>
 </select>
 
 <select id="solar">
@@ -374,43 +373,55 @@ battery insights, and future mobility recommendations powered by AI.
 
 </div>
 
-<button class="main-btn" onclick="generateReport()">
-⚡ Generate AI Energy Intelligence Report
+<button class="main-btn" onclick="generateAIReport()">
+⚡ Generate Personalized AI Future Report
 </button>
 
 <div class="report" id="report">
 
 <div class="report-card">
 
-<h2>⚡ Personalized AI Energy Report</h2>
+<h2>🤖 Your Personalized AI Energy Report</h2>
 
-<p id="savings"></p>
-<p id="ev"></p>
-<p id="charging"></p>
-<p id="solarAdvice"></p>
-<p id="future"></p>
+<p id="greeting"></p>
+
+<p id="cityInsight"></p>
+
+<p id="evSuggestion"></p>
+
+<p id="familyInsight"></p>
+
+<p id="solarInsight"></p>
+
+<p id="futureInsight"></p>
 
 </div>
 
 </div>
+
+<div class="ai-chat">
+
+<h2>🤖 Ask Your AI Energy Assistant</h2>
 
 <div class="chat-box">
 
-<h2>🤖 AI Energy Assistant</h2>
-
-<div class="chat-input">
-
 <input type="text"
 id="question"
-placeholder="Ask AI anything about EVs, charging, batteries, subsidies, solar...">
+placeholder="Example: Is EV good for Bangalore traffic?">
 
-<button class="chat-btn" onclick="askAI()">
+<button class="ask-btn"
+onclick="askAI()">
+
 Ask AI
+
 </button>
 
 </div>
 
-<div class="ai-response" id="aiResponse"></div>
+<div class="ai-answer"
+id="aiAnswer">
+
+</div>
 
 </div>
 
@@ -419,23 +430,43 @@ Ask AI
 <section class="features">
 
 <div class="feature">
-<h3>🚗 AI EV Advisor</h3>
-<p>Get the best EV recommendation based on your city, budget, driving pattern and charging access.</p>
+
+<h3>🚗 Human-Centered EV Guidance</h3>
+
+<p>
+AI understands your city, family needs, parking reality and travel lifestyle before recommending an EV.
+</p>
+
 </div>
 
 <div class="feature">
-<h3>🔋 Battery Intelligence</h3>
-<p>AI predicts long-term battery savings, charging ROI and future maintenance costs.</p>
+
+<h3>☀ Smart Solar Intelligence</h3>
+
+<p>
+Discover how rooftop solar can reduce your charging costs and future electricity bills.
+</p>
+
 </div>
 
 <div class="feature">
-<h3>☀ Solar + EV Integration</h3>
-<p>Discover if rooftop solar can reduce your EV charging cost close to zero.</p>
+
+<h3>🔋 Battery & Charging Insights</h3>
+
+<p>
+AI helps you understand long-term charging convenience, battery health and running costs.
+</p>
+
 </div>
 
 <div class="feature">
-<h3>📈 Future Mobility Dashboard</h3>
-<p>Track future energy trends, EV adoption and India’s clean energy revolution.</p>
+
+<h3>📈 India Future Mobility Dashboard</h3>
+
+<p>
+Track the future of EV adoption, clean energy and AI-powered transportation in India.
+</p>
+
 </div>
 
 </section>
@@ -443,107 +474,165 @@ Ask AI
 <footer>
 
 India Energy Future HQ ⚡<br>
-AI • EV • Solar • Future Mobility • Clean Energy<br><br>
+AI • EV • Solar • Future Mobility • Human-Centered Intelligence<br><br>
 
-WhatsApp: 9250036334
+WhatsApp Support: 9250036334
 
 </footer>
 
 <script>
 
-function generateReport(){
+function generateAIReport(){
 
-    const km = document.getElementById("km").value;
-    const budget = document.getElementById("budget").value;
-    const house = document.getElementById("house").value;
-    const solar = document.getElementById("solar").value;
+    const city =
+    document.getElementById("city").value;
 
-    let monthlySavings = Math.round(km * 4.5);
+    const budget =
+    document.getElementById("budget").value;
 
-    document.getElementById("savings").innerHTML =
-    "💰 Estimated Monthly Fuel Savings: ₹" + monthlySavings;
+    const family =
+    document.getElementById("family").value;
 
-    if(budget < 1200000){
-
-        document.getElementById("ev").innerHTML =
-        "🚗 Recommended EV: Tata Tiago EV — ideal for city driving and low running costs.";
-
-    } else {
-
-        document.getElementById("ev").innerHTML =
-        "🚗 Recommended EV: Tata Nexon EV — balanced range, features and long-term value.";
-
-    }
-
-    if(house === "Apartment"){
-
-        document.getElementById("charging").innerHTML =
-        "🔌 Charging Insight: Society charging permissions may be required.";
-
-    } else {
-
-        document.getElementById("charging").innerHTML =
-        "🔌 Charging Insight: Home charger installation is highly suitable.";
-
-    }
-
-    if(solar === "Yes"){
-
-        document.getElementById("solarAdvice").innerHTML =
-        "☀ AI Solar Recommendation: Rooftop solar can reduce EV charging costs by 60–90%.";
-
-    } else {
-
-        document.getElementById("solarAdvice").innerHTML =
-        "☀ AI Insight: Solar integration can significantly improve long-term EV savings.";
-
-    }
-
-    document.getElementById("future").innerHTML =
-    "📈 Future Prediction: EV adoption in India is expected to grow rapidly over the next 5 years.";
+    const solar =
+    document.getElementById("solar").value;
 
     document.getElementById("report").style.display = "block";
 
-}
+    document.getElementById("greeting").innerHTML =
+    "✨ Thank you for sharing your lifestyle details. Our AI analyzed your city conditions, driving pattern and future energy needs.";
 
-function askAI(){
+    /* CITY INSIGHT */
 
-    const question =
-    document.getElementById("question").value.toLowerCase();
+    if(city === "Bangalore"){
 
-    let answer = "";
-
-    if(question.includes("best ev")){
-
-        answer =
-        "⚡ AI Insight: Tata Nexon EV and MG ZS EV are currently among the strongest all-round EVs in India.";
+        document.getElementById("cityInsight").innerHTML =
+        "🌆 Bangalore Insight: Considering heavy office traffic and growing charging infrastructure in Bangalore, EV ownership can significantly reduce fuel stress and monthly commuting costs.";
 
     }
 
-    else if(question.includes("charging")){
+    else if(city === "Mumbai"){
 
-        answer =
-        "🔌 AI Charging Advice: Home charging is the cheapest and most efficient EV charging solution.";
+        document.getElementById("cityInsight").innerHTML =
+        "🌆 Mumbai Insight: Compact EVs with reliable range and apartment-friendly charging setups are ideal for Mumbai’s dense urban lifestyle.";
 
     }
 
-    else if(question.includes("solar")){
+    else if(city === "New Delhi"){
 
-        answer =
-        "☀ Solar + EV can dramatically reduce long-term energy expenses and dependency on fuel.";
+        document.getElementById("cityInsight").innerHTML =
+        "🌆 Delhi Insight: EV adoption in Delhi can help reduce fuel expenses while supporting cleaner air and government-backed EV growth.";
+
+    }
+
+    else if(city === "Ahmedabad"){
+
+        document.getElementById("cityInsight").innerHTML =
+        "🌆 Ahmedabad Insight: Strong sunlight conditions make Ahmedabad highly suitable for future solar + EV energy savings.";
 
     }
 
     else{
 
-        answer =
-        "🤖 AI Energy Assistant: India’s EV ecosystem is rapidly evolving. Always compare charging access, subsidy benefits, battery warranty and long-term running cost before purchase.";
+        document.getElementById("cityInsight").innerHTML =
+        "🌆 AI City Insight: Your city is becoming part of India’s rapidly growing EV ecosystem with increasing clean mobility opportunities.";
 
     }
 
-    document.getElementById("aiResponse").style.display = "block";
+    /* EV RECOMMENDATION */
 
-    document.getElementById("aiResponse").innerHTML = answer;
+    if(budget < 1200000){
+
+        document.getElementById("evSuggestion").innerHTML =
+        "🚗 AI EV Recommendation: Tata Tiago EV looks like a practical and financially smart option for your current lifestyle and city driving needs.";
+
+    }
+
+    else{
+
+        document.getElementById("evSuggestion").innerHTML =
+        "🚗 AI EV Recommendation: Tata Nexon EV offers strong long-term value, comfort and future-ready driving confidence for your family.";
+
+    }
+
+    /* FAMILY */
+
+    if(family === "Large Family"){
+
+        document.getElementById("familyInsight").innerHTML =
+        "👨‍👩‍👧‍👦 Family Insight: Your usage pattern suggests comfort, cabin space and long-term reliability should be prioritized over only price.";
+
+    }
+
+    else{
+
+        document.getElementById("familyInsight").innerHTML =
+        "👨‍👩‍👧 Family Insight: Your driving profile is highly compatible with affordable EV ownership and lower monthly running costs.";
+
+    }
+
+    /* SOLAR */
+
+    if(solar === "Yes"){
+
+        document.getElementById("solarInsight").innerHTML =
+        "☀ Solar Intelligence: Combining rooftop solar with EV charging can dramatically reduce your future electricity and mobility expenses.";
+
+    }
+
+    else{
+
+        document.getElementById("solarInsight").innerHTML =
+        "☀ Future Energy Suggestion: Solar integration can become a powerful long-term wealth-saving asset alongside EV ownership.";
+
+    }
+
+    /* FUTURE */
+
+    document.getElementById("futureInsight").innerHTML =
+    "📈 Future Mobility Insight: India’s EV and clean energy ecosystem is expected to grow rapidly over the next 5 years. Early adopters may benefit from lower fuel dependency and smarter future-ready living.";
+
+}
+
+/* AI CHAT */
+
+function askAI(){
+
+    const q =
+    document.getElementById("question").value.toLowerCase();
+
+    let response = "";
+
+    if(q.includes("bangalore")){
+
+        response =
+        "🤖 Bangalore EV Insight: EVs are becoming increasingly practical for Bangalore commuters because stop-and-go traffic heavily increases petrol costs over time.";
+
+    }
+
+    else if(q.includes("solar")){
+
+        response =
+        "☀ AI Solar Insight: Solar + EV is one of the strongest future wealth-saving combinations for Indian households.";
+
+    }
+
+    else if(q.includes("best ev")){
+
+        response =
+        "🚗 AI Recommendation: The best EV depends on your family size, city traffic, charging access and long-term usage expectations.";
+
+    }
+
+    else{
+
+        response =
+        "🤖 India Energy AI Assistant: Future mobility decisions should balance savings, charging convenience, battery reliability and family comfort — not only showroom price.";
+
+    }
+
+    document.getElementById("aiAnswer").style.display = "block";
+
+    document.getElementById("aiAnswer").innerHTML = response;
 
 }
 
